@@ -1,6 +1,6 @@
 # Introduction
 
-#### Queues are something we are all fimilar with. We Join a queue whenever we get in line and, then there's other people that get in line behind. When we talk about queues in Python programming and even with other langauges adding items in a queue is called **Enqueue** and when we remove items from the queue we call that **Dequeue**. Something to remember is that we **Enqueue** from the back and we **Dequeue** from the Front. We use *FIFO*, First In First Out method with queues. A queue use *BigO (1)*
+#### Queues are something we are all fimilar with. We Join a queue whenever we get in line and, then there's other people that get in line behind. When we talk about queues in Python programming and even with other langauges adding items in a queue is called **Enqueue** and when we remove items from the queue we call that **Dequeue**. Something to remember is that we **Enqueue** from the back and we **Dequeue** from the Front. We use *FIFO*, First In First Out method with queues. A queue operation uses *BigO (1)*
 ![Alternate Text to Display](pictures/1.png)
 ![Alternate Text to Display](pictures/2.png)
 ![Alternate Text to Display](pictures/3.png)
