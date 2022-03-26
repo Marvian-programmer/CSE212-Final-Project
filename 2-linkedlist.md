@@ -20,6 +20,16 @@
 ### Here is a link for the BigO of performing different operations in a linked list: [BigO ](pictures/BigO.png)
 
 
+### 1. Remember that it does not matter how many nodes we have in the list, the number of operations to add it to the end is O(1)
+### 2. Whereas removing a node, we need to start at the head, iterate through the list until we get to that pointer pointed to the node we need to remove,because we had to iterate through the entire list this is O(n)
+
+
+### 3. Adding to the front is going to be O(1) because, it doesn't matter how many items we have in the list, its going to be the same number of operations.
+
+
+### 4.Removing from the front is still going to be O(1) because, it still doesn't matter how many items we have in the list the number of operations are still same.
+
+
 
 ### **Here is an example of using Append:**
 
@@ -507,3 +517,50 @@ my_linked_list.print_list()
 
 
 ## Problem to Solve:
+
+#### The following code is broken, you will need to fix it and then make sure that you can append *2, 3, 4* at the end of the list.
+
+
+```python
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+        
+
+class LinkedList:
+    def __init__(self, value):
+        new_node = Node(value)
+        self.head = new_node
+        self.tail = new_node
+        self.length = 1
+
+    def print_list(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.value)
+            # temp = temp.next
+        
+    def append(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            # self.tail = new_node
+        self.length += 1
+
+
+
+my_linked_list = LinkedList(1)
+
+# my_linked_list.append(2)
+
+my_linked_list.print_list() result : 1 2 3 4                               
+```
+
+### Please click this link after you have completed the problem on your own [Solution](ll_solution.py)
+
+
+
