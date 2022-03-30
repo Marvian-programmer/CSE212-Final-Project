@@ -16,7 +16,7 @@ class LinkedList:
         temp = self.head
         while temp is not None:
             print(temp.value)
-            temp = temp.next # You needed to set self.head to self.head.next to get the next value.
+            temp = temp.next  
         
     def append(self, value):
         new_node = Node(value)
@@ -25,14 +25,14 @@ class LinkedList:
             self.tail = new_node 
         else:
             self.tail.next = new_node
-            self.tail = new_node  # The tail must become the new Node
+            self.tail = new_node  
         self.length += 1
 
 
 
 my_linked_list = LinkedList(1)
 
-my_linked_list.append(2) # You needed to to add just the three append methods with the values 234
+my_linked_list.append(2) 
 my_linked_list.append(3)
 my_linked_list.append(4)
 
