@@ -2,8 +2,8 @@
 
 ## Welcome to the Python Data Structures Tutorial. Every Python programmer should understand the following Data Structures:
 
-* Queue
-* Linked list
+* [Queue](1-queue.md)
+* [Linked list](2-linkedlist.md)
 * Tree
 
 
