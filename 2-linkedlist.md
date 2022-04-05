@@ -16,9 +16,9 @@
 
 
 ![Alternate Text to Display](pictures/linkedlist4.png)
+### Big0:
 
-### Here is a link for the BigO of performing different operations in a linked list: [BigO ](pictures/BigO.png)
-
+![Alternate Text to Display](pictures/BigO.png)
 
 ### 1. Remember that it does not matter how many nodes we have in the list, the number of operations to add it to the end is O(1)
 ### 2. Whereas removing a node, we need to start at the head, iterate through the list until we get to that pointer pointed to the node we need to remove,because we had to iterate through the entire list this is O(n)
@@ -95,33 +95,6 @@ class LinkedList:
         while temp is not None:
             print(temp.value)
             temp = temp.next
-        
-    def append(self, value):
-        new_node = Node(value)
-        if self.length == 0:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            self.tail.next = new_node
-            self.tail = new_node
-        self.length += 1
-        return True
-
-    def pop(self):
-        if self.length == 0:
-            return None
-        temp = self.head
-        pre = self.head
-        while(temp.next):
-            pre = temp
-            temp = temp.next
-        self.tail = pre
-        self.tail.next = None
-        self.length -= 1
-        if self.length == 0:
-            self.head = None
-            self.tail = None
-        return temp
 
     def prepend(self, value):
         new_node = Node(value)
@@ -174,59 +147,6 @@ class LinkedList:
             self.tail = new_node
         self.length += 1
         return True
-
-    def pop(self):
-        if self.length == 0:
-            return None
-        temp = self.head
-        pre = self.head
-        while(temp.next):
-            pre = temp
-            temp = temp.next
-        self.tail = pre
-        self.tail.next = None
-        self.length -= 1
-        if self.length == 0:
-            self.head = None
-            self.tail = None
-        return temp
-
-    def prepend(self, value):
-        new_node = Node(value)
-        if self.length == 0:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            new_node.next = self.head
-            self.head = new_node
-        self.length += 1
-        return True
-
-    def pop_first(self):
-        if self.length == 0:
-            return None
-        temp = self.head
-        self.head = self.head.next
-        temp.next = None
-        self.length -= 1
-        if self.length == 0:
-            self.tail = None
-        return temp
-
-    def get(self, index):
-        if index < 0 or index >= self.length:
-            return None
-        temp = self.head
-        for _ in range(index):
-            temp = temp.next
-        return temp
-        
-    def set_value(self, index, value):
-        temp = self.get(index)
-        if temp:
-            temp.value = value
-            return True
-        return False
     
     def insert(self, index, value):
         if index < 0 or index > self.length:
@@ -274,70 +194,6 @@ class LinkedList:
         while temp is not None:
             print(temp.value)
             temp = temp.next
-        
-    def append(self, value):
-        new_node = Node(value)
-        if self.length == 0:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            self.tail.next = new_node
-            self.tail = new_node
-        self.length += 1
-        return True
-
-    def pop(self):
-        if self.length == 0:
-            return None
-        temp = self.head
-        pre = self.head
-        while(temp.next):
-            pre = temp
-            temp = temp.next
-        self.tail = pre
-        self.tail.next = None
-        self.length -= 1
-        if self.length == 0:
-            self.head = None
-            self.tail = None
-        return temp
-
-    def prepend(self, value):
-        new_node = Node(value)
-        if self.length == 0:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            new_node.next = self.head
-            self.head = new_node
-        self.length += 1
-        return True
-
-    def pop_first(self):
-        if self.length == 0:
-            return None
-        temp = self.head
-        self.head = self.head.next
-        temp.next = None
-        self.length -= 1
-        if self.length == 0:
-            self.tail = None
-        return temp
-
-    def get(self, index):
-        if index < 0 or index >= self.length:
-            return None
-        temp = self.head
-        for _ in range(index):
-            temp = temp.next
-        return temp
-        
-    def set_value(self, index, value):
-        temp = self.get(index)
-        if temp:
-            temp.value = value
-            return True
-        return False
     
     def insert(self, index, value):
         if index < 0 or index > self.length:
@@ -378,6 +234,62 @@ print(my_linked_list.remove(2), '\n')
 my_linked_list.print_list()
 ```
 ### **Here is an example of using Reverse:**
+
+```python
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+        
+
+class LinkedList:
+    def __init__(self, value):
+        new_node = Node(value)
+        self.head = new_node
+        self.tail = new_node
+        self.length = 1
+
+    def print_list(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+        
+    def append(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+        self.length += 1
+        return True
+
+    def reverse(self):
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        after = temp.next
+        before = None
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
+  
+
+my_linked_list = LinkedList(1)
+my_linked_list.append(2)
+my_linked_list.append(3)
+my_linked_list.append(4)
+
+my_linked_list.reverse()
+
+my_linked_list.print_list()
+```
+
+### Here is code with all all methods i showed above:
 
 ```python
 class Node:
@@ -514,8 +426,6 @@ my_linked_list.reverse()
 my_linked_list.print_list()
 ```
 
-
-
 ## Problem to Solve:
 
 #### The following code is broken, you will need to fix it and then make sure that you can append *2, 3, 4* at the end of the list.
@@ -539,7 +449,7 @@ class LinkedList:
         temp = self.head
         while temp is not None:
             print(temp.value)
-            # temp = temp.next
+            # Solve here
         
     def append(self, value):
         new_node = Node(value)
@@ -548,14 +458,14 @@ class LinkedList:
             self.tail = new_node
         else:
             self.tail.next = new_node
-            # self.tail = new_node
+            # Solver here
         self.length += 1
 
 
 
 my_linked_list = LinkedList(1)
 
-# my_linked_list.append(2)
+# Solve here
 
 my_linked_list.print_list() result : 1 2 3 4                               
 ```
